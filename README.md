@@ -1,5 +1,8 @@
 # Разработка проекта со Spring
 
+[![Lines-of-Code](https://tokei.rs/b1/github/javacoded78/catalogue)](https://github.com/javacoded78/catalogue)
+
+
 ![](demo/images/griting.png)
 
 ## Профили Spring
