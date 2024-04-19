@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Список товаров &dash; Catalogue</title>
+</head>
+<body>
+<div style="text-align: center;">
+    <a th:href="@{/catalogue/products/create}"> Создать новый товар</a>
+    <h1>Список товаров</h1>
+    <table style="margin-left: auto; margin-right: auto;">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Товар</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="product : ${products}">
+            <td th:text="${product.id}">Номер</td>
+            <td>
+                <a th:href="@{/catalogue/products/{id}(id=${product.id})}"
+                   th:text="${product.title}">Товар
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

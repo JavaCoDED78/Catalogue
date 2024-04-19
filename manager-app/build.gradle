@@ -1,0 +1,31 @@
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+dependencies {
+
+    //    <-- *** WEB *** -->
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    //    <-- *** TEMPLATE ENGINE *** -->
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+
+    //    <-- *** VALIDATION *** -->
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+    //    <-- *** LOMBOK *** -->
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    //    <-- *** DEVTOOLS *** -->
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
+    //    <-- *** ANNOTATION PROCESSOR *** -->
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+
+    //    <-- *** TEST *** -->
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
