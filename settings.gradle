@@ -1,4 +1,4 @@
 rootProject.name = 'catalogue'
 
 include 'manager-app'
-
+include 'catalogue-service'

@@ -10,8 +10,8 @@ dependencies {
     //    <-- *** WEB *** -->
     implementation 'org.springframework.boot:spring-boot-starter-web'
 
-    //    <-- *** TEMPLATE ENGINE *** -->
-    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    //    <-- *** VALIDATION *** -->
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
 
     //    <-- *** LOMBOK *** -->
     compileOnly 'org.projectlombok:lombok'
@@ -26,3 +26,4 @@ dependencies {
     //    <-- *** TEST *** -->
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
+
