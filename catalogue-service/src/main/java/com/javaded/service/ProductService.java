@@ -2,12 +2,11 @@ package com.javaded.service;
 
 import com.javaded.entity.Product;
 
-import java.util.List;
 import java.util.Optional;
 
 public interface ProductService {
 
-    List<Product>getAllProducts();
+    Iterable<Product>getAllProducts(String filter);
 
     Product createProduct(String title, String details);
 

@@ -10,18 +10,19 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("catalogue/products")
 public class ProductsController {
 
-    private final ProductsRestClient productsRestClient
-            ;
+    private final ProductsRestClient productsRestClient;
 
     @GetMapping("/list")
-    public String receiveProductList(Model model) {
-        model.addAttribute("products", productsRestClient.obtainAllProducts());
+    public String receiveProductList(Model model, @RequestParam(name = "filter", required = false) String filter) {
+        model.addAttribute("products", productsRestClient.obtainAllProducts(filter));
+        model.addAttribute("filter", filter);
         return "catalogue/products/list";
     }
 

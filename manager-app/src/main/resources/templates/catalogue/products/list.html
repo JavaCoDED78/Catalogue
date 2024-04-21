@@ -8,6 +8,11 @@
 <div style="text-align: center;">
     <a th:href="@{/catalogue/products/create}"> Создать новый товар</a>
     <h1>Список товаров</h1>
+    <form method="get" th:action="@{/catalogue/products/list}">
+        <label>Фильтр:<input type="text" name="filter" th:value="${filter}">
+            <button type="submit">Поиск</button>
+        </label>
+    </form>
     <table style="margin-left: auto; margin-right: auto;">
         <thead>
         <tr>

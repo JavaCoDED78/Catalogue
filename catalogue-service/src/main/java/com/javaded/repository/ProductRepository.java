@@ -1,16 +1,10 @@
 package com.javaded.repository;
 
 import com.javaded.entity.Product;
+import org.springframework.data.repository.CrudRepository;
 
-import java.util.List;
-import java.util.Optional;
+public interface ProductRepository extends CrudRepository<Product, Integer> {
 
-public interface ProductRepository {
-    List<Product> findAllProducts();
+    Iterable<Product> findAllByTitleLikeIgnoreCase(String filter);
 
-    Product save(Product product);
-
-    Optional<Product> findById(Integer id);
-
-    void deleteById(Integer id);
 }

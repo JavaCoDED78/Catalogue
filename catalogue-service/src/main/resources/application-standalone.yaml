@@ -1,2 +1,23 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/catalogue
+    username: postgres
+    password: pass
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    properties.hibernate:
+      batch_size: 50
+      fetch_size: 50
+      show_sql: true
+      format_sql: true
+  flyway:
+    schemas:
+      - public
+      - catalogue
+
 server:
   port: 8081
+
+logging:
+  level:
+    sql: info

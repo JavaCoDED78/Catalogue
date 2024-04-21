@@ -7,7 +7,7 @@ import java.util.Optional;
 
 public interface ProductsRestClient {
 
-    List<Product> obtainAllProducts();
+    List<Product> obtainAllProducts(String filter);
 
     Product createProduct(String title, String details);
 
