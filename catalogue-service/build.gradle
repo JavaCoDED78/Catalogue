@@ -16,6 +16,9 @@ dependencies {
     //    <-- *** FLYWAY *** -->
     implementation 'org.flywaydb:flyway-core'
 
+    //    <-- *** SECURITY *** -->
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+
     //    <-- *** WEB *** -->
     implementation 'org.springframework.boot:spring-boot-starter-web'
 

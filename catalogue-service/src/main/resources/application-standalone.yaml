@@ -1,7 +1,13 @@
 spring:
+  security:
+    user:
+      name: catalogue_service_user
+      password: '{noop}password'
+      roles:
+        - SERVICE
   datasource:
     url: jdbc:postgresql://localhost:5432/catalogue
-    username: postgres
+    username: catalogue
     password: pass
     driver-class-name: org.postgresql.Driver
   jpa:

@@ -10,6 +10,18 @@ dependencies {
     //    <-- *** WEB *** -->
     implementation 'org.springframework.boot:spring-boot-starter-web'
 
+    //    <-- *** SECURITY *** -->
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+
+    //    <-- *** DATA *** -->
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+    //    <-- *** POSTGRES *** -->
+    implementation 'org.postgresql:postgresql'
+
+    //    <-- *** FLYWAY *** -->
+    implementation 'org.flywaydb:flyway-core'
+
     //    <-- *** TEMPLATE ENGINE *** -->
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 

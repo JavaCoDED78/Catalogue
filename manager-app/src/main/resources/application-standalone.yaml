@@ -2,3 +2,22 @@ catalogue:
   services:
     catalogue:
       uri: http://localhost:8081
+      username: catalogue_service_user
+      password: password
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5433/manager
+    username: manager
+    password: pass
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    properties.hibernate:
+      batch_size: 50
+      fetch_size: 50
+      show_sql: true
+      format_sql: true
+  flyway:
+    schemas:
+      - public
+      - manager
