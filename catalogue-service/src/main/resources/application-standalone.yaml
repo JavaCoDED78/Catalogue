@@ -1,10 +1,4 @@
 spring:
-  security:
-    user:
-      name: catalogue_service_user
-      password: '{noop}password'
-      roles:
-        - SERVICE
   datasource:
     url: jdbc:postgresql://localhost:5432/catalogue
     username: catalogue
@@ -20,7 +14,11 @@ spring:
     schemas:
       - public
       - catalogue
-
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8082/realms/catalogue
 server:
   port: 8081
 
