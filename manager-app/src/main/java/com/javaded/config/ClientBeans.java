@@ -15,7 +15,7 @@ import org.springframework.web.client.RestClient;
 public class ClientBeans {
 
     @Bean
-    public RestClienProductsRestClient restClienProductsRestClient(
+    public RestClienProductsRestClient productsRestClient(
             @Value("${catalogue.services.catalogue.uri:http://localhost:8081}") String catalogueBaseUri,
             ClientRegistrationRepository clientRegistrationRepository,
             OAuth2AuthorizedClientRepository authorizedClientRepository,

@@ -13,15 +13,6 @@ dependencies {
     //    <-- *** SECURITY *** -->
     implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
 
-    //    <-- *** DATA *** -->
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-
-    //    <-- *** POSTGRES *** -->
-    implementation 'org.postgresql:postgresql'
-
-    //    <-- *** FLYWAY *** -->
-    implementation 'org.flywaydb:flyway-core'
-
     //    <-- *** TEMPLATE ENGINE *** -->
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 
@@ -37,4 +28,7 @@ dependencies {
 
     //    <-- *** TEST *** -->
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.security:spring-security-test'
+    testImplementation 'org.testcontainers:junit-jupiter'
+    testImplementation 'org.wiremock:wiremock-standalone:3.3.1'
 }
