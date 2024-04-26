@@ -6,15 +6,14 @@ configurations {
 }
 
 dependencies {
-
-    //    <-- *** WEB *** -->
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-
-    //    <-- *** SECURITY *** -->
-    implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
+    //    <-- ***WEBFLUX *** -->
+    implementation 'org.springframework.boot:spring-boot-starter-webflux'
 
     //    <-- *** TEMPLATE ENGINE *** -->
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+
+    //    <-- *** VALIDATION *** -->
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
 
     //    <-- *** LOMBOK *** -->
     compileOnly 'org.projectlombok:lombok'
@@ -25,10 +24,4 @@ dependencies {
 
     //    <-- *** ANNOTATION PROCESSOR *** -->
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
-
-    //    <-- *** TEST *** -->
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    testImplementation 'org.springframework.security:spring-security-test'
-    testImplementation 'org.testcontainers:junit-jupiter'
-    testImplementation 'org.wiremock:wiremock-standalone:3.5.4'
 }

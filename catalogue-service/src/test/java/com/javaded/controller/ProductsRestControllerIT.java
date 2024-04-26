@@ -73,7 +73,8 @@ public class ProductsRestControllerIT {
         var requestBuilder = MockMvcRequestBuilders.post("/catalogue-api/products")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content("""
-                        {"title": "Ещё один новый товар", "details": "Какое-то описание нового товара"}""")
+                        {"title": "Ещё один новый товар", "details": "Какое-то описание нового товара"}
+                        """)
                 .with(jwt().jwt(builder -> builder.claim("scope", "edit_catalogue")));
 
         // when
