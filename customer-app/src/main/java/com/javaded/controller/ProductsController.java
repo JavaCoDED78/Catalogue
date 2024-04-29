@@ -1,8 +1,8 @@
 package com.javaded.controller;
 
+import com.javaded.client.FavouriteProductsClient;
 import com.javaded.client.ProductsClient;
 import com.javaded.entity.FavouriteProduct;
-import com.javaded.service.FavouriteProductsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,7 +18,7 @@ public class ProductsController {
 
     private final ProductsClient productsClient;
 
-    private final FavouriteProductsService favouriteProductsService;
+    private final FavouriteProductsClient favouriteProductsClient;
 
     @GetMapping("/list")
     public Mono<String> receiveProductListPage(Model model,
@@ -34,8 +34,8 @@ public class ProductsController {
     public Mono<String> receiveFavouriteProductsPage(Model model,
                                                  @RequestParam(name = "filter", required = false) String filter) {
         model.addAttribute("filter", filter);
-        return favouriteProductsService.getFavouriteProducts()
-                .map(FavouriteProduct::getProductId)
+        return favouriteProductsClient.obtainFavouriteProducts()
+                .map(FavouriteProduct::productId)
                 .collectList()
                 .flatMap(favouriteProducts -> productsClient.obtainAllProducts(filter)
                         .filter(product -> favouriteProducts.contains(product.id()))
