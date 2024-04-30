@@ -8,6 +8,9 @@ dependencies {
     //    <-- ***WEBFLUX *** -->
     implementation 'org.springframework.boot:spring-boot-starter-webflux'
 
+    //    <-- *** SPRING DATA *** -->
+    implementation 'org.springframework.boot:spring-boot-starter-data-mongodb-reactive'
+
     //    <-- *** VALIDATION *** -->
     implementation 'org.springframework.boot:spring-boot-starter-validation'
 

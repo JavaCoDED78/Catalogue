@@ -29,7 +29,7 @@ public class WebClientFavouriteProductsClient implements FavouriteProductsClient
     public Mono<FavouriteProduct> obtainFavouriteProductByProductId(int productId) {
         return webClient
                 .get()
-                .uri("/feedback-api/favourite-products/{productId}", productId)
+                .uri("/feedback-api/favourite-products/by-product-id/{productId}", productId)
                 .retrieve()
                 .bodyToMono(FavouriteProduct.class)
                 .onErrorComplete(WebClientResponseException.NotFound.class);

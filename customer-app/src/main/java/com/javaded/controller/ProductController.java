@@ -21,7 +21,7 @@ import reactor.core.publisher.Mono;
 import java.util.NoSuchElementException;
 
 @Controller
-@RequestMapping("/customer/products/{id:\\d+}")
+@RequestMapping("/customer/products/{productId:\\d+}")
 @RequiredArgsConstructor
 @Slf4j
 public class ProductController {
@@ -31,13 +31,13 @@ public class ProductController {
     private final ProductReviewsClient productReviewsClient;
 
     @ModelAttribute(name = "product", binding = false)
-    public Mono<Product> loadProduct(@PathVariable("id") int id) {
+    public Mono<Product> loadProduct(@PathVariable("productId") int id) {
         return productsClient.obtainProduct(id)
                 .switchIfEmpty(Mono.error(new NoSuchElementException("customer.products.error.not_found")));
     }
 
     @GetMapping
-    public Mono<String> receiveProductPage(@PathVariable("id") int id, Model model) {
+    public Mono<String> receiveProductPage(@PathVariable("productId") int id, Model model) {
         model.addAttribute("inFavourite", false);
         return productReviewsClient.obtainProductReviewsByProduct(id)
                 .collectList()
@@ -68,7 +68,7 @@ public class ProductController {
     }
 
     @PostMapping("create-review")
-    public Mono<String> createReview(@PathVariable("id") int id,
+    public Mono<String> createReview(@PathVariable("productId") int id,
                                      NewProductReviewPayload payload,
                                      Model model) {
         return productReviewsClient.createProductReview(id, payload.rating(), payload.review())

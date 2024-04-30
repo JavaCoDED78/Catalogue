@@ -1,12 +1,14 @@
 package com.javaded.repository;
 
 import com.javaded.entity.ProductReview;
+import org.springframework.data.repository.reactive.ReactiveCrudRepository;
+import org.springframework.stereotype.Repository;
 import reactor.core.publisher.Flux;
-import reactor.core.publisher.Mono;
 
-public interface ProductReviewRepository {
+import java.util.UUID;
 
-    Mono<ProductReview> save(ProductReview productReview);
+@Repository
+public interface ProductReviewRepository extends ReactiveCrudRepository<ProductReview, UUID>  {
 
     Flux<ProductReview> findAllByProductId(int productId);
 }
