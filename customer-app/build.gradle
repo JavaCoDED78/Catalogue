@@ -9,6 +9,9 @@ dependencies {
     //    <-- ***WEBFLUX *** -->
     implementation 'org.springframework.boot:spring-boot-starter-webflux'
 
+    //    <-- *** SECURITY *** -->
+    implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
+
     //    <-- *** TEMPLATE ENGINE *** -->
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 
