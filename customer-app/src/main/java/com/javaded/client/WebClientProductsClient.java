@@ -11,9 +11,13 @@ import reactor.core.publisher.Mono;
 public class WebClientProductsClient implements ProductsClient {
 
     private final WebClient webClient;
+
     @Override
     public Flux<Product> obtainAllProducts(String filter) {
-        return webClient.get()
+        return webClient
+                .mutate()
+                .build()
+                .get()
                 .uri("/catalogue-api/products?filter={filter}", filter)
                 .retrieve()
                 .bodyToFlux(Product.class);

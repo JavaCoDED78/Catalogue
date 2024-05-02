@@ -24,4 +24,11 @@ dependencies {
 
     //    <-- *** ANNOTATION PROCESSOR *** -->
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+
+    //    <-- *** TEST *** -->
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.security:spring-security-test'
+    testImplementation 'org.testcontainers:junit-jupiter'
+    testImplementation 'io.projectreactor:reactor-test'
+    testImplementation 'org.wiremock:wiremock-standalone:3.5.4'
 }
