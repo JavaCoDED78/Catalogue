@@ -1,4 +1,4 @@
-package config;
+package com.javaded.config;
 
 import com.javaded.client.WebClientFavouriteProductsClient;
 import com.javaded.client.WebClientProductReviewsClient;

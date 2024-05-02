@@ -26,5 +26,14 @@ dependencies {
 
     //    <-- *** ANNOTATION PROCESSOR *** -->
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
-}
 
+    //    <-- *** TEST *** -->
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.security:spring-security-test'
+    testImplementation 'org.springframework.boot:spring-boot-testcontainers'
+    testImplementation 'org.testcontainers:mongodb'
+    testImplementation 'org.testcontainers:junit-jupiter'
+    testImplementation 'io.projectreactor:reactor-test'
+    testCompileOnly 'org.projectlombok:lombok'
+    testAnnotationProcessor 'org.projectlombok:lombok'
+}
