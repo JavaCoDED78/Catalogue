@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[[${product.title}]] &ndash; Каталог</title>
+</head>
+<body>
+<div style="text-align: center;">
+<a th:href="@{/customer/products/list}">&larr; К списку товаров</a>
+<h1 th:text="${product.title}"></h1>
+<p th:text="${product.details}"></p>
+<form method="post" th:action="@{/customer/products/{productId}/add-to-favourites(productId=${product.id})}"
+      th:if="${!inFavourite}">
+    <button type="submit">Добавить в избранное</button>
+</form>
+<form method="post" th:action="@{/customer/products/{productId}/remove-from-favourites(productId=${product.id})}"
+      th:if="${inFavourite}">
+    <button type="submit">Удалить из избранного</button>
+</form>
+<h2>Отзывы</h2>
+<div th:if="${errors}" style="margin-left: auto; margin-right: auto; width: 40%;">
+    <h3></h3>
+    <ul>
+        <li th:each="error : ${errors}" data-th-text="${error}"></li>
+    </ul>
+</div>
+<form method="post" th:action="@{/customer/products/{productId}/create-review(productId=${product.id})}">
+    <label><input type="radio" name="rating" value="1"> 1</label>
+    <label><input type="radio" name="rating" value="2"> 2</label>
+    <label><input type="radio" name="rating" value="3"> 3</label>
+    <label><input type="radio" name="rating" value="4"> 4</label>
+    <label><input type="radio" name="rating" value="5"> 5</label>
+    <br>
+    <label>
+        Отзыв:<br>
+        <textarea name="review"></textarea>
+    </label><br>
+    <button type="submit">Отправить отзыв</button>
+</form>
+<div th:each="review : ${reviews}">
+    <h3>[[${review.rating}]]*</h3>
+    <p th:text="${review.review}"></p>
+</div>
+</div>
+</body>
+</html>

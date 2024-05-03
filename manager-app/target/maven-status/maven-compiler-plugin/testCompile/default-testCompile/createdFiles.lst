@@ -1,0 +1,6 @@
+com\javaded\controller\ProductsControllerTest.class
+com\javaded\config\TestingBeans.class
+com\javaded\controller\ProductsControllerIT.class
+com\javaded\controller\ProductControllerIT.class
+com\javaded\controller\ProductControllerTest.class
+com\javaded\security\OAuthClientHttpRequestInterceptorTest.class

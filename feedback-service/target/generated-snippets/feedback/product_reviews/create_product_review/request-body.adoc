@@ -1,0 +1,8 @@
+[source,json,options="nowrap"]
+----
+{
+  "productId" : 1,
+  "rating" : 5,
+  "review" : "На пятёрочку!"
+}
+----

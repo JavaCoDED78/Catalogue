@@ -1,0 +1,16 @@
+|===
+|Path|Type|Description
+
+|`+productId+`
+|`+int+`
+|Идентификатор товара
+
+|`+rating+`
+|`+int+`
+|Оценка
+
+|`+review+`
+|`+string+`
+|Отзыв
+
+|===

@@ -3,6 +3,8 @@ package com.javaded.controller;
 import com.javaded.controller.payload.NewProductReviewPayload;
 import com.javaded.entity.ProductReview;
 import com.javaded.service.ProductReviewsService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationToken;
@@ -27,6 +29,9 @@ public class ProductReviewsRestController {
     private final ProductReviewsService productReviewsService;
 
     @GetMapping("by-product-id/{productId:\\d+}")
+    @Operation(
+            security = @SecurityRequirement(name = "keycloak")
+    )
     public Flux<ProductReview> receiveProductReviewsByProductId(@PathVariable("productId") int productId) {
         return productReviewsService.getProductReviewsByProduct(productId);
     }

@@ -1,0 +1,11 @@
+C:\Users\andro\Desktop\Catalogue\catalogue\catalogue-service\src\main\java\com\javaded\CatalogueServiceApplication.java
+C:\Users\andro\Desktop\Catalogue\catalogue\catalogue-service\src\main\java\com\javaded\config\SecurityBeans.java
+C:\Users\andro\Desktop\Catalogue\catalogue\catalogue-service\src\main\java\com\javaded\controller\BadRequestControllerAdvice.java
+C:\Users\andro\Desktop\Catalogue\catalogue\catalogue-service\src\main\java\com\javaded\controller\payload\NewProductPayload.java
+C:\Users\andro\Desktop\Catalogue\catalogue\catalogue-service\src\main\java\com\javaded\controller\payload\UpdateProductPayload.java
+C:\Users\andro\Desktop\Catalogue\catalogue\catalogue-service\src\main\java\com\javaded\controller\ProductRestController.java
+C:\Users\andro\Desktop\Catalogue\catalogue\catalogue-service\src\main\java\com\javaded\controller\ProductsRestController.java
+C:\Users\andro\Desktop\Catalogue\catalogue\catalogue-service\src\main\java\com\javaded\entity\Product.java
+C:\Users\andro\Desktop\Catalogue\catalogue\catalogue-service\src\main\java\com\javaded\repository\ProductRepository.java
+C:\Users\andro\Desktop\Catalogue\catalogue\catalogue-service\src\main\java\com\javaded\service\DefaultProductService.java
+C:\Users\andro\Desktop\Catalogue\catalogue\catalogue-service\src\main\java\com\javaded\service\ProductService.java

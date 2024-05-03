@@ -1,0 +1,9 @@
+[source,bash]
+----
+$ echo '{
+  "productId" : 1,
+  "rating" : 5,
+  "review" : "На пятёрочку!"
+}' | http POST 'http://localhost:8080/feedback-api/product-reviews' \
+    'Content-Type:application/json'
+----
