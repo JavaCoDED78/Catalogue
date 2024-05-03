@@ -1,5 +1,0 @@
-spring:
-  datasource:
-    url: jdbc:tc:postgresql:16:///catalogue?TC_DAEMON=true
-    username: cotalogue
-    password: cotalogue
