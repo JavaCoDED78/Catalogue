@@ -9,6 +9,14 @@ catalogue:
       uri: http://localhost:8084
 
 spring:
+  boot:
+    admin:
+      client:
+        url: http://localhost:8085
+        instance:
+          name: customer-app
+          service-host-type: ip
+        enabled: true
   security:
     oauth2:
       client:
@@ -24,3 +32,24 @@ spring:
             scope:
               - openid
               - view_catalogue
+          metrics:
+            provider: keycloak
+            client-id: customer-app-metrics-client
+            client-secret: ZSnf8EgH8K8ZKnhtDGPfPlGnIDBPlM4m
+            authorization-grant-type: client_credentials
+            scope:
+              - metrics_server
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8082/realms/catalogue
+
+management:
+  health:
+    livenessstate:
+      enabled: true
+    readinessstate:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: '*'
