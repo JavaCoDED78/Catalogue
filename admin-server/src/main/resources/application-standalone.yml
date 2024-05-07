@@ -5,22 +5,29 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://172.17.0.1:8082/catalogue
+          issuer-uri: http://localhost:8082/realms/catalogue
       client:
         provider:
           keycloak:
-            issuer-uri: http://172.17.0.1:8082/catalogue
+            issuer-uri: http://localhost:8082/realms/catalogue
         registration:
           keycloak:
             authorization-grant-type: client_credentials
             scope:
               - metrics
             client-id: admin-service
-            client-secret: XFzyTDGIQySZsGD4gz2kZyw6tXV5NDuE
+            client-secret: Ot6SR4T1raYQbs5CIU8thwsJq6S9LGk4
           login:
             provider: keycloak
             scope:
               - metrics
               - openid
             client-id: admin-service
-            client-secret: XFzyTDGIQySZsGD4gz2kZyw6tXV5NDuE
+            client-secret: Ot6SR4T1raYQbs5CIU8thwsJq6S9LGk4
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - health
+          - prometheus

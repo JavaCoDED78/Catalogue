@@ -1,70 +1,70 @@
 scrape_configs:
   - job_name: catalogue_admin_service
     static_configs:
-      - targets: ["http://172.17.0.1:8085"]
+      - targets: ["http://localhost:8085"]
         labels:
           application: catalogue-admin-service
     metrics_path: /actuator/prometheus
     oauth2:
       client_id: victoria-metrics
-      client_secret: z0LfGymVinDFrYGSJDC6d7SKtqfdJ3RS
-      token_url: http://172.17.0.1:8082/realms/catalogue/protocol/openid-connect/token
+      client_secret: sq70kc2BS38MQZfLf3hKt8671TuCwLys
+      token_url: http://localhost:8082/realms/catalogue/protocol/openid-connect/token
       scopes:
         - metrics
       endpoint_params:
         grant_type: client_credentials
   - job_name: catalogue_catalogue_service
     static_configs:
-      - targets: ["http://172.17.0.1:8081"]
+      - targets: ["http://localhost:8081"]
         labels:
           application: catalogue-catalogue-service
     metrics_path: /actuator/prometheus
     oauth2:
       client_id: victoria-metrics
-      client_secret: vTpeB59Sb2Qzh0HI4cXBlewm2ivY0dzD
-      token_url: http://172.17.0.1:8082/realms/catalogue/protocol/openid-connect/token
+      client_secret: sq70kc2BS38MQZfLf3hKt8671TuCwLys
+      token_url: http://localhost:8082/realms/catalogue/protocol/openid-connect/token
       scopes:
         - metrics
       endpoint_params:
         grant_type: client_credentials
   - job_name: catalogue_feedback_service
     static_configs:
-      - targets: ["http://172.17.0.1:8084"]
+      - targets: ["http://localhost:8084"]
         labels:
           application: catalogue-feedback-service
     metrics_path: /actuator/prometheus
     oauth2:
       client_id: victoria-metrics
-      client_secret: vTpeB59Sb2Qzh0HI4cXBlewm2ivY0dzD
-      token_url: http://172.17.0.1:8082/realms/catalogue/protocol/openid-connect/token
+      client_secret: sq70kc2BS38MQZfLf3hKt8671TuCwLys
+      token_url: http://localhost:8082/realms/catalogue/protocol/openid-connect/token
       scopes:
         - metrics
       endpoint_params:
         grant_type: client_credentials
   - job_name: catalogue_customer_app
     static_configs:
-      - targets: ["http://172.17.0.1:8083"]
+      - targets: ["http://localhost:8083"]
         labels:
           application: catalogue-customer-app
     metrics_path: /actuator/prometheus
     oauth2:
       client_id: victoria-metrics
-      client_secret: vTpeB59Sb2Qzh0HI4cXBlewm2ivY0dzD
-      token_url: http://172.17.0.1:8082/realms/catalogue/protocol/openid-connect/token
+      client_secret: sq70kc2BS38MQZfLf3hKt8671TuCwLys
+      token_url: http://localhost:8082/realms/catalogue/protocol/openid-connect/token
       scopes:
         - metrics
       endpoint_params:
         grant_type: client_credentials
   - job_name: catalogue_manager_app
     static_configs:
-      - targets: ["http://172.17.0.1:8080"]
+      - targets: ["http://localhost:8080"]
         labels:
           application: catalogue-manager-app
     metrics_path: /actuator/prometheus
     oauth2:
       client_id: victoria-metrics
-      client_secret: vTpeB59Sb2Qzh0HI4cXBlewm2ivY0dzD
-      token_url: http://172.17.0.1:8082/realms/catalogue/protocol/openid-connect/token
+      client_secret: sq70kc2BS38MQZfLf3hKt8671TuCwLys
+      token_url: http://localhost:8082/realms/catalogue/protocol/openid-connect/token
       scopes:
         - metrics
       endpoint_params:

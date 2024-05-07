@@ -27,7 +27,7 @@ spring:
         registration:
           keycloak:
             client-id: customer-app
-            client-secret: iJcPJWyvbrkB9BEuwqkrAun9XKJFEI7l
+            client-secret: GzILsArHTA7cIVf3uarPadYFEDozfNqW
             authorization-grant-type: authorization_code
             scope:
               - openid
@@ -35,7 +35,7 @@ spring:
           metrics:
             provider: keycloak
             client-id: customer-app-metrics-client
-            client-secret: ZSnf8EgH8K8ZKnhtDGPfPlGnIDBPlM4m
+            client-secret: BjtnYau3hnyTr2qfABLTWemI7ywbJv1r
             authorization-grant-type: client_credentials
             scope:
               - metrics_server
