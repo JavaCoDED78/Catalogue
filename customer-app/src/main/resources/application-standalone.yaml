@@ -9,6 +9,8 @@ catalogue:
       uri: http://localhost:8084
 
 spring:
+  application:
+    name: catalogue-customer-app
   boot:
     admin:
       client:
@@ -53,3 +55,9 @@ management:
     web:
       exposure:
         include: '*'
+  zipkin:
+    tracing:
+      endpoint: http://localhost:9411/api/v2/spans
+  tracing:
+    sampling:
+      probability: 1.0

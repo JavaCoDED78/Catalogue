@@ -5,6 +5,8 @@ catalogue:
       registration-id: keycloak
 
 spring:
+  application:
+    name: catalogue-manager-app
   boot:
     admin:
       client:
@@ -60,3 +62,9 @@ management:
     web:
       exposure:
         include: '*'
+  zipkin:
+    tracing:
+      endpoint: http://localhost:9411/api/v2/spans
+  tracing:
+    sampling:
+      probability: 1.0
