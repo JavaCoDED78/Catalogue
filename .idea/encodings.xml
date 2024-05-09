@@ -7,6 +7,8 @@
     <file url="file://$PROJECT_DIR$/catalogue-service/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/customer-app/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/customer-app/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/eureka-server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/eureka-server/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/feedback-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/feedback-service/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/manager-app/src/main/java" charset="UTF-8" />

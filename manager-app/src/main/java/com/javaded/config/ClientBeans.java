@@ -23,20 +23,47 @@ import org.springframework.web.client.RestTemplate;
 @Configuration
 public class ClientBeans {
 
-    @Bean
-    public RestClienProductsRestClient productsRestClient(
-            @Value("${catalogue.services.catalogue.uri:http://localhost:8081}") String catalogueBaseUri,
-            ClientRegistrationRepository clientRegistrationRepository,
-            OAuth2AuthorizedClientRepository authorizedClientRepository,
-            @Value("${catalogue.services.catalogue.registration-id:keycloak}") String registrationId) {
-        return new RestClienProductsRestClient(RestClient.builder()
-                .baseUrl(catalogueBaseUri)
-                .requestInterceptor(
-                        new OAuthClientHttpRequestInterceptor(
-                                new DefaultOAuth2AuthorizedClientManager(clientRegistrationRepository,
-                                        authorizedClientRepository), registrationId))
-                .build());
+    @Configuration
+    @ConditionalOnProperty(name = "eureka.client.enabled", havingValue = "false")
+    public static class StandaloneClientConfig {
+
+        @Bean
+        public RestClienProductsRestClient productsRestClient(
+                @Value("${catalogue.services.catalogue.uri:http://localhost:8081}") String catalogueBaseUri,
+                ClientRegistrationRepository clientRegistrationRepository,
+                OAuth2AuthorizedClientRepository authorizedClientRepository,
+                @Value("${catalogue.services.catalogue.registration-id:keycloak}") String registrationId) {
+            return new RestClienProductsRestClient(RestClient.builder()
+                    .baseUrl(catalogueBaseUri)
+                    .requestInterceptor(
+                            new OAuthClientHttpRequestInterceptor(
+                                    new DefaultOAuth2AuthorizedClientManager(clientRegistrationRepository,
+                                            authorizedClientRepository), registrationId))
+                    .build());
+        }
     }
+
+    @Configuration
+    @ConditionalOnProperty(name = "eureka.client.enabled", havingValue = "true", matchIfMissing = true)
+    public static class CloudClientConfig {
+
+        @Bean
+        public RestClienProductsRestClient productsRestClient(
+                @Value("${catalogue.services.catalogue.uri:http://localhost:8081}") String catalogueBaseUri,
+                ClientRegistrationRepository clientRegistrationRepository,
+                OAuth2AuthorizedClientRepository authorizedClientRepository,
+                @Value("${catalogue.services.catalogue.registration-id:keycloak}") String registrationId) {
+            return new RestClienProductsRestClient(RestClient.builder()
+                    .baseUrl(catalogueBaseUri)
+                    .requestInterceptor(
+                            new OAuthClientHttpRequestInterceptor(
+                                    new DefaultOAuth2AuthorizedClientManager(clientRegistrationRepository,
+                                            authorizedClientRepository), registrationId))
+                    .build());
+        }
+    }
+
+
 
     @Bean
     @ConditionalOnProperty(name = "spring.boot.admin.client.enabled", havingValue = "true")

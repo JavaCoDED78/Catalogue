@@ -35,8 +35,8 @@ spring:
       client:
         registration:
           keycloak:
-            client-id: catalogue-service-metrics-client
-            client-secret: as53RwZabNRwQh4WqbRqk9Dx3KYkzWcB
+            client-id: catalogue-service
+            client-secret: FLemvkfzlXyUGdTRXthJrPn5Prs9AU61
             authorization-grant-type: client_credentials
             scope:
               - metrics_server
@@ -72,3 +72,6 @@ management:
   tracing:
     sampling:
       probability: 1.0
+eureka:
+  client:
+    enabled: false
