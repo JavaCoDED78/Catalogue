@@ -1,0 +1,46 @@
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8082/realms/catalogue
+      client:
+        provider:
+          keycloak:
+            issuer-uri: http://localhost:8082/realms/catalogue
+            user-name-attribute: preferred_username
+        registration:
+          keycloak:
+            authorization-grant-type: client_credentials
+            scope:
+              - metrics
+            client-id: admin-service
+            client-secret: Ot6SR4T1raYQbs5CIU8thwsJq6S9LGk4
+          login:
+            provider: keycloak
+            scope:
+              - metrics
+              - openid
+            client-id: admin-service
+            client-secret: Ot6SR4T1raYQbs5CIU8thwsJq6S9LGk4
+          discovery:
+            provider: keycloak
+            client-id: admin-service
+            client-secret: Ot6SR4T1raYQbs5CIU8thwsJq6S9LGk4
+            authorization-grant-type: client_credentials
+            scope:
+              - discovery
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - health
+          - prometheus
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    register-with-eureka: false

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="config-server" />
+        <module name="catalogue-service" />
+        <module name="manager-app" />
+        <module name="admin-server" />
+        <module name="customer-app" />
+        <module name="feedback-service" />
+        <module name="eureka-server" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="eureka-server.main" target="21" />
+      <module name="eureka-server.test" target="21" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="admin-server" options="-parameters" />
+      <module name="catalogue-parent" options="-parameters" />
+      <module name="catalogue-service" options="-parameters" />
+      <module name="config-server" options="-parameters" />
+      <module name="customer-app" options="-parameters" />
+      <module name="eureka-server" options="-parameters" />
+      <module name="feedback-service" options="-parameters" />
+      <module name="manager-app" options="-parameters" />
+    </option>
+  </component>
+</project>
