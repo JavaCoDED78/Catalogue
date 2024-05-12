@@ -7,8 +7,8 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/alex-kosarev/sc24-confg.git
+          uri: https://github.com/JavaCoDED78/Catalogue-config
           clone-on-start: true
-          default-label: master
-          search-paths:
-            - '{application}/{profile}'
+          searchPaths: '{application}/{profile}'
+          default-label: main
+          timeout: 3

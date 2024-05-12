@@ -10,6 +10,7 @@
         <module name="config-server" />
         <module name="catalogue-service" />
         <module name="manager-app" />
+        <module name="api-gateway" />
         <module name="admin-server" />
         <module name="customer-app" />
         <module name="feedback-service" />
@@ -24,6 +25,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="admin-server" options="-parameters" />
+      <module name="api-gateway" options="-parameters" />
       <module name="catalogue-parent" options="-parameters" />
       <module name="catalogue-service" options="-parameters" />
       <module name="config-server" options="-parameters" />

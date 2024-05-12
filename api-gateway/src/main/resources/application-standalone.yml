@@ -1,0 +1,72 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: catalogue-service-route
+          uri: http://localhost:8081
+          predicates:
+            - Host=catalogue.api.127.0.0.1.nip.io
+        - id: feedback-service-route
+          uri: http://localhost:8084
+          predicates:
+            - Host=feedback.api.127.0.0.1.nip.io
+    config:
+      enabled: false
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8082/realms/selmag
+      client:
+        provider:
+          keycloak:
+            issuer-uri: http://localhost:8082/realms/catalogue
+        registration:
+          discovery:
+            provider: keycloak
+            client-id: api-gateway
+            client-secret: 0DWDWru0l6ZFrsUAVfmtJy0p6dKhFnBy
+            authorization-grant-type: client_credentials
+            scope:
+              - discovery
+          metrics:
+            provider: keycloak
+            client-id: api-gateway
+            client-secret: 0DWDWru0l6ZFrsUAVfmtJy0p6dKhFnBy
+            authorization-grant-type: client_credentials
+            scope:
+              - metrics_server
+  application:
+    name: catalogue-api-gateway
+  boot:
+    admin:
+      client:
+        url: http://localhost:8085
+        instance:
+          name: api-gateway
+          service-host-type: ip
+          service-base-url: http://localhost:8086
+          management-base-url: http://localhost:8086
+        enabled: true
+management:
+  health:
+    livenessstate:
+      enabled: true
+    readinessstate:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  zipkin:
+    tracing:
+      endpoint: http://localhost:9411/api/v2/spans
+  tracing:
+    sampling:
+      probability: 1.0
+server:
+  port: 8086
+  forward-headers-strategy: framework
+eureka:
+  client:
+    enabled: false
