@@ -12,7 +12,7 @@
                 </http>
                 <format>
                     <label>
-                        <pattern>app=catalogue-customer-app,host=${HOSTNAME},level=%level</pattern>
+                        <pattern>app=selmag-customer-app,host=${HOSTNAME},level=%level</pattern>
                     </label>
                     <message>
                         <pattern>l=%level h=${HOSTNAME} c=%logger{20} t=%thread | %msg %ex</pattern>

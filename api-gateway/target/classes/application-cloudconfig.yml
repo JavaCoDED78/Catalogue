@@ -3,9 +3,9 @@ server:
   forward-headers-strategy: framework
 spring:
   application:
-    name: catalogue-api-gateway
+    name: selmag-api-gateway
   config:
     import: 'optional:configserver:'
   cloud:
     config:
-      uri: http://config:config-password@localhost:8888
+      uri: http://config:config-password@172.17.0.1:8888

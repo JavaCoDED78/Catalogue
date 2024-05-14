@@ -2,13 +2,13 @@ server:
   port: 8888
 spring:
   application:
-    name: catalogue-config-server
+    name: selmag-config-server
   cloud:
     config:
       server:
         git:
-          uri: https://github.com/JavaCoDED78/Catalogue-config
+          uri: https://github.com/alex-kosarev/sc24-confg.git
           clone-on-start: true
-          searchPaths: '{application}/{profile}'
-          default-label: main
-          timeout: 3
+          default-label: master
+          search-paths:
+            - '{application}/{profile}'

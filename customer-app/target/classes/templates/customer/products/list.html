@@ -2,28 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Наши товары &ndash; Каталог</title>
+    <title>Наши товары &ndash; Сельмаг</title>
 </head>
 <body>
-<div style="text-align: center;">
-    <a th:href="@{/customer/products/favourites}">Избранные товары</a>
-    <h1>Наши товары</h1>
-    <form>
-        <label>Фильтр: <input type="text" name="filter" th:value="${filter}">
-            <button type="submit">Поиск</button>
-        </label>
-    </form>
-</div>
-<div style="margin-left: auto; margin-right: auto; width: 40%;">
-    <ul>
-        <li th:each="product : ${products}">
-            <strong>
-                <a th:text="${product.title}"
-                   th:href="@{/customer/products/{productId}(productId=${product.id})}"></a>
-            </strong>
-            <p th:text="${product.details}"></p>
-        </li>
-    </ul>
-</div>
+<a data-th-href="@{/customer/products/favourites}">Избранные товары</a>
+<h1>Наши товары</h1>
+<form>
+    <label>Фильтр: <input type="text" name="filter" data-th-value="${filter}"> <button type="submit">Поиск</button></label>
+</form>
+<ul>
+    <li data-th-each="product : ${products}">
+        <strong>
+            <a data-th-text="${product.title}"
+               data-th-href="@{/customer/products/{productId}(productId=${product.id})}"></a>
+        </strong>
+        <p data-th-text="${product.details}"></p>
+    </li>
+</ul>
 </body>
 </html>

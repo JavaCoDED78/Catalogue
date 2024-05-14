@@ -1,7 +1,0 @@
-spring:
-  security:
-    user:
-      name: config
-      password: config-password
-      roles:
-        - CONFIG

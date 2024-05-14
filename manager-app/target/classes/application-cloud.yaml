@@ -1,11 +1,11 @@
-catalogue:
+selmag:
   services:
     catalogue:
-      uri: lb://catalogue-catalogue-service
+      uri: lb://selmag-catalogue-service
       registration-id: keycloak
 spring:
   application:
-    name: catalogue-manager-app
+    name: selmag-manager-app
   boot:
     admin:
       client:
@@ -16,18 +16,18 @@ spring:
   datasource:
     url: jdbc:postgresql://localhost:5433/manager
     username: manager
-    password: pass
+    password: manager
   security:
     oauth2:
       client:
         provider:
           keycloak:
-            issuer-uri: http://localhost:8082/realms/catalogue
+            issuer-uri: http://172.17.0.1:8082/realms/selmag
             user-name-attribute: preferred_username
         registration:
           keycloak:
             client-id: manager-app
-            client-secret: ZAKUVcwAbFRLpzNWx3YyVMtrFt74dr2l
+            client-secret: JwByKV4Y8m95GDYTNqJH6jfaj5dXpv8F
             scope:
               - openid
               - view_catalogue
@@ -36,20 +36,20 @@ spring:
           metrics:
             provider: keycloak
             client-id: manager-app
-            client-secret: ZAKUVcwAbFRLpzNWx3YyVMtrFt74dr2l
+            client-secret: JwByKV4Y8m95GDYTNqJH6jfaj5dXpv8F
             authorization-grant-type: client_credentials
             scope:
               - metrics_server
           discovery:
             provider: keycloak
             client-id: manager-app
-            client-secret: ZAKUVcwAbFRLpzNWx3YyVMtrFt74dr2l
+            client-secret: JwByKV4Y8m95GDYTNqJH6jfaj5dXpv8F
             authorization-grant-type: client_credentials
             scope:
               - discovery
       resourceserver:
         jwt:
-          issuer-uri: http://localhost:8082/realms/catalogue
+          issuer-uri: http://172.17.0.1:8082/realms/selmag
 management:
   health:
     livenessstate:
@@ -62,7 +62,7 @@ management:
         include: '*'
   zipkin:
     tracing:
-      endpoint: http://localhost:9411/api/v2/spans
+      endpoint: http://172.17.0.1:9411/api/v2/spans
   tracing:
     sampling:
       probability: 1.0
@@ -71,4 +71,4 @@ eureka:
     prefer-ip-address: true
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://172.18.0.1:8761/eureka/

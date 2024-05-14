@@ -1,14 +1,14 @@
-catalogue:
+selmag:
   services:
     catalogue:
-      uri: lb://catalogue-catalogue-service
+      uri: lb://selmag-catalogue-service
     feedback:
-      uri: lb://catalogue-feedback-service
+      uri: lb://selmag-feedback-service
 server:
   port: 8083
 spring:
   application:
-    name: catalogue-customer-app
+    name: selmag-customer-app
   boot:
     admin:
       client:
@@ -21,12 +21,12 @@ spring:
       client:
         provider:
           keycloak:
-            issuer-uri: http://localhost:8082/realms/catalogue
+            issuer-uri: http://172.17.0.1:8082/realms/selmag
             user-name-attribute: preferred_username
         registration:
           keycloak:
             client-id: customer-app
-            client-secret: GzILsArHTA7cIVf3uarPadYFEDozfNqW
+            client-secret: M1bhGCByxWDqVWeokJj6Z9sMGTI41lNc
             authorization-grant-type: authorization_code
             scope:
               - openid
@@ -34,20 +34,20 @@ spring:
           metrics:
             provider: keycloak
             client-id: customer-app
-            client-secret: GzILsArHTA7cIVf3uarPadYFEDozfNqW
+            client-secret: M1bhGCByxWDqVWeokJj6Z9sMGTI41lNc
             authorization-grant-type: client_credentials
             scope:
               - metrics_server
           discovery:
             provider: keycloak
             client-id: customer-app
-            client-secret: GzILsArHTA7cIVf3uarPadYFEDozfNqW
+            client-secret: M1bhGCByxWDqVWeokJj6Z9sMGTI41lNc
             authorization-grant-type: client_credentials
             scope:
               - discovery
       resourceserver:
         jwt:
-          issuer-uri: http://localhost:8082/realms/catalogue
+          issuer-uri: http://172.17.0.1:8082/realms/selmag
 management:
   health:
     livenessstate:
@@ -60,7 +60,7 @@ management:
         include: '*'
   zipkin:
     tracing:
-      endpoint: http://localhost:9411/api/v2/spans
+      endpoint: http://172.17.0.1:9411/api/v2/spans
   tracing:
     sampling:
       probability: 1.0

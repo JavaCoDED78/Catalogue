@@ -1,11 +1,11 @@
 server:
-  forward-headers-strategy: native
   port: 8083
+  forward-headers-strategy: native
 spring:
   application:
-    name: catalogue-customer-app
+    name: selmag-customer-app
   config:
     import: 'optional:configserver:'
   cloud:
     config:
-      uri: http://config:config-password@localhost:8888
+      uri: http://config:config-password@172.17.0.1:8888

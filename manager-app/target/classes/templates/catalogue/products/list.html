@@ -2,36 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Список товаров &dash; Catalogue</title>
+    <title>Список товаров &ndash; Сельмаг</title>
 </head>
 <body>
-<div style="text-align: center;">
-    <a th:href="@{/catalogue/products/create}"> Создать новый товар</a>
-    <h1>Список товаров</h1>
-    <form method="get" th:action="@{/catalogue/products/list}">
-        <label>Фильтр:<input type="text" name="filter" th:value="${filter}">
-            <button type="submit">Поиск</button>
-        </label>
-    </form>
-    <table style="margin-left: auto; margin-right: auto;">
-        <thead>
-        <tr>
-            <th>#</th>
-            <th>Товар</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="product : ${products}">
-            <td th:text="${product.id}">Номер</td>
-            <td>
-                <a th:href="@{/catalogue/products/{id}(id=${product.id})}"
-                   th:text="${product.title}">Товар
-                </a>
-            </td>
-        </tr>
-        </tbody>
-    </table>
-</div>
-
+<a data-th-href="@{/catalogue/products/create}">+ Создать товар</a>
+<h1>Список товаров</h1>
+<form method="get" data-th-action="@{/catalogue/products/list}">
+    <label>Фильтр:<input type="text" name="filter" data-th-value="${filter}">
+        <button type="submit">Поиск</button>
+    </label>
+</form>
+<table>
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>Товар</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr data-th-each="product : ${products}">
+        <td data-th-text="${product.id}"></td>
+        <td>
+            <a data-th-href="@{/catalogue/products/{productId}(productId=${product.id})}"
+               data-th-text="${product.title}"></a>
+        </td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>

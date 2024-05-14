@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <configuration>
 
-    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
-    <include resource="org/springframework/boot/logging/logback/console-appender.xml"/>
+    <include resource="org/springframework/boot/logging/logback/defaults.xml" />
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml" />
 
     <if condition='isDefined("LOKI")'>
         <then>
@@ -12,7 +12,7 @@
                 </http>
                 <format>
                     <label>
-                        <pattern>app=catalogue-admin-service,host=${HOSTNAME},level=%level</pattern>
+                        <pattern>app=selmag-admin-service,host=${HOSTNAME},level=%level</pattern>
                     </label>
                     <message>
                         <pattern>l=%level h=${HOSTNAME} c=%logger{20} t=%thread | %msg %ex</pattern>

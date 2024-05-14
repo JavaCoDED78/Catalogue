@@ -2,27 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Редактирование товара &laquo; [[${product.title}]] &raquo; &dash; Catalogue</title>
+    <title>Редактирование товара &laquo;[[${product.title}]]&raquo; &ndash; Сельмаг</title>
 </head>
 <body>
-<div style="text-align: center;">
-    <a th:href="@{/catalogue/products/{id}(id=${product.id})}">&lAarr; К товару</a>
-    <h1>Редактирование товара</h1>
-    <div th:if="${errors}" style="color: red">
-        <h2>Допущены ошибки</h2>
-        <ul>
-            <li th:each="error : ${errors}" th:text="${error}"></li>
-        </ul>
-    </div>
-    <form th:method="POST" th:action="@{/catalogue/products/{id}/edit(id=${product.id})}">
-        <label>Название:<br>
-            <input type="text" name="title" th:value="${payload != null ? payload.title : product.title}"/><br/>
-        </label><br>
-        <label>Описание:<br>
-            <textarea name="details" th:text="${payload != null ? payload.details : product.details}"></textarea>
-        </label><br>
-        <button type="submit">Изменить</button>
-    </form>
+<a data-th-href="@{/catalogue/products/{productId}(productId=${product.id})}">&larr; К товару</a>
+<h1>Редактирование товара &laquo;[[${product.title}]]</h1>
+<div data-th-if="${errors}">
+    <h2>Допущены ошибки</h2>
+    <ul>
+        <li data-th-each="error: ${errors}" data-th-text="${error}"></li>
+    </ul>
 </div>
+<form method="post" data-th-action="@{/catalogue/products/{productId}/edit(productId=${product.id})}">
+    <label>
+        Название:<br>
+        <input type="text" name="title" data-th-value="${payload != null ? payload.title : product.title}">
+    </label><br>
+    <label>
+        Описание:<br>
+        <textarea name="details" data-th-text="${payload != null ? payload.details : product.details}"></textarea>
+    </label><br>
+    <button type="submit">Изменить</button>
+</form>
 </body>
 </html>

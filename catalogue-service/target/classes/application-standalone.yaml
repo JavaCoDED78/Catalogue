@@ -1,9 +1,8 @@
 server:
   port: 8081
-
 spring:
   application:
-    name: catalogue-catalogue-service
+    name: selmag-catalogue-service
   boot:
     admin:
       client:
@@ -18,47 +17,39 @@ spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/catalogue
     username: catalogue
-    password: pass
-    driver-class-name: org.postgresql.Driver
-  jpa:
-    properties.hibernate:
-      batch_size: 50
-      fetch_size: 50
-      show_sql: true
-      format_sql: true
+    password: catalogue
   flyway:
     schemas:
       - public
       - catalogue
+  jpa:
+    show-sql: true
   security:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://localhost:8082/realms/catalogue
+          issuer-uri: http://172.17.0.1:8082/realms/selmag
       client:
         registration:
           keycloak:
             client-id: catalogue-service
-            client-secret: FLemvkfzlXyUGdTRXthJrPn5Prs9AU61
+            client-secret: LWRWGTNOni7xr9oIh52Wt6bS9jRcQy6Q
             authorization-grant-type: client_credentials
             scope:
               - metrics_server
         provider:
           keycloak:
-            issuer-uri: http://localhost:8082/realms/catalogue
-
+            issuer-uri: http://172.17.0.1:8082/realms/selmag
 logging:
   level:
     sql: info
-
 springdoc:
   swagger-ui:
     oauth:
       client-id: catalogue-service-swagger-ui
       use-pkce-with-authorization-code-grant: true
 keycloak:
-  uri: http://localhost:8082
-
+  uri: http://172.17.0.1:8082
 management:
   health:
     livenessstate:
@@ -71,7 +62,7 @@ management:
         include: '*'
   zipkin:
     tracing:
-      endpoint: http://localhost:9411/api/v2/spans
+      endpoint: http://172.17.0.1:9411/api/v2/spans
   tracing:
     sampling:
       probability: 1.0

@@ -2,9 +2,9 @@ server:
   forward-headers-strategy: native
 spring:
   application:
-    name: catalogue-manager-app
+    name: selmag-manager-app
   config:
     import: 'optional:configserver:'
   cloud:
     config:
-      uri: http://config:config-password@localhost:8888
+      uri: http://config:config-password@172.17.0.1:8888

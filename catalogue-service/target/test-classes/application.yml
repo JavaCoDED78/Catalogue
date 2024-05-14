@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:tc:postgresql:16:///catalogue?TC_DAEMON=true
-    username: cotalogue
-    password: cotalogue
+    url: jdbc:tc:postgresql:16:///selmag?TC_DAEMON=true
+    username: selmag
+    password: selmag
   boot:
     admin:
       client:
@@ -10,6 +10,6 @@ spring:
   cloud:
     config:
       enabled: false
-  eureka:
-    client:
-      enabled: false
+eureka:
+  client:
+    enabled: false

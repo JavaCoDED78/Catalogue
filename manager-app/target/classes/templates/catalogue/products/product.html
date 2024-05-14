@@ -2,25 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>[[${product.title}]] &dash; Catalogue</title>
+    <title>[[${product.title}]] &ndash; Сельмаг</title>
 </head>
 <body>
-<div style="text-align: center;">
-    <a th:href="@{/catalogue/products/list}">&lAarr; К списку товаров</a>
-    <h1 th:text="${product.title}">Товар</h1>
-</div>
-<div style="margin-left: auto; margin-right: auto; width: 40%;">
-    <ul>
-        <li><strong>ID</strong>: <span th:text="${product.id} "></span></li>
-        <li><strong>Название</strong>: <span th:text="${product.title} "></span></li>
-        <li><strong>Описание</strong>: <span th:text="${product.details} "></span></li>
-    </ul>
-    <div style="text-align: center">
-        <a th:href="@{/catalogue/products/{id}/edit(id=${product.id})}">Изменить</a>
-        <form th:method="POST" th:action="@{/catalogue/products/{id}/delete(id=${product.id})}">
-            <button type="submit">Удалить</button>
-        </form>
-    </div>
-</div>
+<a data-th-href="@{/catalogue/products/list}">&larr; К списку товаров</a>
+<h1 data-th-text="${product.title}"></h1>
+<ul>
+    <li><strong>ID</strong>: <span data-th-text="${product.id}"></span></li>
+    <li><strong>Название</strong>: <span data-th-text="${product.title}"></span></li>
+    <li><strong>Описание</strong>: <span data-th-text="${product.details}"></span></li>
+</ul>
+<a data-th-href="@{/catalogue/products/{productId}/edit(productId=${product.id})}">Изменить</a>
+<form method="post" data-th-action="@{/catalogue/products/{productId}/delete(productId=${product.id})}">
+    <button type="submit">Удалить</button>
+</form>
 </body>
 </html>

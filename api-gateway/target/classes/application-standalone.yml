@@ -3,50 +3,50 @@ spring:
     gateway:
       routes:
         - id: catalogue-service-route
-          uri: http://localhost:8081
+          uri: http://172.17.0.1:8081
           predicates:
-            - Host=catalogue.api.127.0.0.1.nip.io
+            - Host=catalogue.api.selm.ag.172.17.0.1.nip.io
         - id: feedback-service-route
-          uri: http://localhost:8084
+          uri: http://172.17.0.1:8084
           predicates:
-            - Host=feedback.api.127.0.0.1.nip.io
+            - Host=feedback.api.selm.ag.172.17.0.1.nip.io
     config:
       enabled: false
   security:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://localhost:8082/realms/selmag
+          issuer-uri: http://172.17.0.1:8082/realms/selmag
       client:
         provider:
           keycloak:
-            issuer-uri: http://localhost:8082/realms/catalogue
+            issuer-uri: http://172.17.0.1:8082/realms/selmag
         registration:
           discovery:
             provider: keycloak
             client-id: api-gateway
-            client-secret: 0DWDWru0l6ZFrsUAVfmtJy0p6dKhFnBy
+            client-secret: kaKBJ6Pc9mPldygbbI5SgWkZWo1ewk5y
             authorization-grant-type: client_credentials
             scope:
               - discovery
           metrics:
             provider: keycloak
             client-id: api-gateway
-            client-secret: 0DWDWru0l6ZFrsUAVfmtJy0p6dKhFnBy
+            client-secret: kaKBJ6Pc9mPldygbbI5SgWkZWo1ewk5y
             authorization-grant-type: client_credentials
             scope:
               - metrics_server
   application:
-    name: catalogue-api-gateway
+    name: selmag-api-gateway
   boot:
     admin:
       client:
-        url: http://localhost:8085
+        url: http://172.17.0.1:8085
         instance:
           name: api-gateway
           service-host-type: ip
-          service-base-url: http://localhost:8086
-          management-base-url: http://localhost:8086
+          service-base-url: http://172.17.0.1:8086
+          management-base-url: http://172.17.0.1:8086
         enabled: true
 management:
   health:
@@ -60,7 +60,7 @@ management:
         include: '*'
   zipkin:
     tracing:
-      endpoint: http://localhost:9411/api/v2/spans
+      endpoint: http://172.17.0.1:9411/api/v2/spans
   tracing:
     sampling:
       probability: 1.0
