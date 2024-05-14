@@ -1,8 +1,0 @@
-[source,json,options="nowrap"]
-----
-{
-  "id" : 1,
-  "title" : "Товар №1",
-  "details" : "Описание товара №1"
-}
-----
