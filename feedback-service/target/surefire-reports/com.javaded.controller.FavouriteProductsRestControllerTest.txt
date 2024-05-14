@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.javaded.controller.FavouriteProductsRestControllerTest
--------------------------------------------------------------------------------
-Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.260 s -- in com.javaded.controller.FavouriteProductsRestControllerTest
