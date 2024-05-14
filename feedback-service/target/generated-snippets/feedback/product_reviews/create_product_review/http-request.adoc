@@ -1,0 +1,13 @@
+[source,http,options="nowrap"]
+----
+POST /feedback-api/product-reviews HTTP/1.1
+Content-Type: application/json
+Content-Length: 82
+Host: localhost:8080
+
+{
+  "productId" : 1,
+  "rating" : 5,
+  "review" : "На пяторочку!"
+}
+----

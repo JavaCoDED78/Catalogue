@@ -1,0 +1,11 @@
+server:
+  port: 8084
+  forward-headers-strategy: framework
+spring:
+  application:
+    name: selmag-feedback-service
+  config:
+    import: 'optional:configserver:'
+  cloud:
+    config:
+      uri: http://config:config-password@172.17.0.1:8888

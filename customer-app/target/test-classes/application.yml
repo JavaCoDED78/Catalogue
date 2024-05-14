@@ -1,0 +1,11 @@
+spring:
+  boot:
+    admin:
+      client:
+        enabled: false
+  cloud:
+    config:
+      enabled: false
+eureka:
+  client:
+    enabled: false

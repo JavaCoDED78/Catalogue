@@ -1,0 +1,5 @@
+com\javaded\web\client\OAuthHttpHeadersProvider.class
+com\javaded\web\config\DiscoveryBeans.class
+com\javaded\web\config\SecurityBeans.class
+com\javaded\web\AdminApplication.class
+org\springframework\cloud\netflix\eureka\http\DefaultEurekaClientHttpRequestFactorySupplier.class

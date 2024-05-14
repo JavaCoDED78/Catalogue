@@ -1,0 +1,5 @@
+com\javaded\ApiGatewayApplication.class
+com\javaded\config\DiscoveryBeans.class
+com\javaded\config\SecurityBeans.class
+com\javaded\config\ClientBeans.class
+org\springframework\cloud\netflix\eureka\http\DefaultEurekaClientHttpRequestFactorySupplier.class
