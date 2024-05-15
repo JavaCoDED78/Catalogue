@@ -1,4 +1,4 @@
-package com.javaded;
+package com.javaded.config;
 
 import jakarta.annotation.Priority;
 import org.springframework.context.annotation.Bean;
@@ -16,9 +16,11 @@ public class SecurityBeans {
     @Priority(0)
     public SecurityFilterChain apiSecurityFilterChain(HttpSecurity http) throws Exception {
         return http
-                .securityMatcher("/eureka/apps", "/eureka/apps/**")
-                .authorizeHttpRequests(customizer -> customizer.anyRequest()
-                        .hasAuthority("SCOPE_discovery"))
+                .securityMatcher("/eureka/apps", "/eureka/apps/**", "/actuator/**")
+                .authorizeHttpRequests(customizer -> customizer
+                        .requestMatchers("/actuator/**").hasAuthority("SCOPE_metrics")
+                        .requestMatchers("/eureka/apps", "/eureka/apps/**").hasAuthority("SCOPE_discovery")
+                        .anyRequest().denyAll())
                 .sessionManagement(customizer -> customizer.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .csrf(CsrfConfigurer::disable)
                 .oauth2ResourceServer(customizer -> customizer.jwt(Customizer.withDefaults()))

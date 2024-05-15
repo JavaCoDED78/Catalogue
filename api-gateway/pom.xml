@@ -41,7 +41,7 @@
         <dependency>
             <groupId>com.github.loki4j</groupId>
             <artifactId>loki-logback-appender</artifactId>
-            <version>1.4.2</version>
+            <version>1.5.1</version>
         </dependency>
         <dependency>
             <groupId>org.codehaus.janino</groupId>
@@ -99,6 +99,13 @@
             </plugin>
         </plugins>
     </build>
+    <repositories>
+        <repository>
+            <id>maven_central</id>
+            <name>Maven Central</name>
+            <url>https://repo.maven.apache.org/maven2/</url>
+        </repository>
+    </repositories>
 
 
 </project>
