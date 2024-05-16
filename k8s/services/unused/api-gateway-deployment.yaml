@@ -41,7 +41,7 @@ spec:
             name: api-gateway-vmagent-cm
       containers:
         - name: selmag-api-gateway
-          image: 192.168.49.1:5000/selmag/api-gateway:24.1.1
+          image: 192.168.49.1:5000/selmag/api-gateway:0.0.1
           ports:
             - containerPort: 8080
           env:

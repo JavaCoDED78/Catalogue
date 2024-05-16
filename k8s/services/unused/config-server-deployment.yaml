@@ -1,15 +1,15 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: eureka-vmagent-cm
+  name: config-server-vmagent-cm
 data:
   promscrape.yaml: |
     scrape_configs:
-      - job_name: selmag_eureka_server
+      - job_name: selmag_config_server
         static_configs:
-          - targets: ["http://localhost:8761"]
+          - targets: ["http://localhost:8888"]
             labels:
-              application: selmag-eureka-server
+              application: selmag-config-server
         metrics_path: /actuator/prometheus
         oauth2:
           client_id: victoria-metrics
@@ -23,39 +23,35 @@ data:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: selmag-eureka-server-deployment
+  name: selmag-config-server-deployment
   labels:
-    app: selmag-eureka-server
+    app: selmag-config-server
 spec:
   selector:
     matchLabels:
-      app: selmag-eureka-server
+      app: selmag-config-server
   template:
     metadata:
       labels:
-        app: selmag-eureka-server
+        app: selmag-config-server
     spec:
       volumes:
         - name: vmconfig
           configMap:
-            name: eureka-vmagent-cm
+            name: config-server-vmagent-cm
       containers:
-        - name: selmag-eureka-server
+        - name: selmag-config-server
           imagePullPolicy: Always
-          image: 192.168.49.1:5000/selmag/eureka-server:24.1.1
+          image: 192.168.49.1:5000/selmag/config-server:0.0.1
           ports:
-            - containerPort: 8761
+            - containerPort: 8888
+          args:
+            - --logging.level.org.springframework.security=TRACE
           env:
             - name: SPRING_PROFILES_ACTIVE
-              value: cloudconfig,k8s
-            - name: SPRING_CLOUD_CONFIG_URI
-              value: http://config:config-password@selmag-config-server-svc.selmag.svc.cluster.local:8888
+              value: git, k8s
             - name: LOKI
               value: http://loki-svc.selmag.svc.cluster.local:3100
-            - name: EUREKA_INSTANCE_HOSTNAME
-              valueFrom:
-                fieldRef:
-                  fieldPath: metadata.name
         - name: vmagent
           image: victoriametrics/vmagent:v1.93.12
           env:
@@ -74,11 +70,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: selmag-eureka-server-svc
+  name: selmag-config-server-svc
 spec:
   type: NodePort
   ports:
-    - port: 8761
+    - port: 8888
       name: http
   selector:
-    app: selmag-eureka-server
+    app: selmag-config-server
