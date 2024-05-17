@@ -1,0 +1,6 @@
+dependencies:
+- name: shared
+  repository: file://../shared
+  version: 0.0.1
+digest: sha256:189a3cea4e1fd60e1843494e957b71d12c52ccfb8670267bf67766d4c0715d04
+generated: "2024-05-17T10:30:39.8133656+03:00"
